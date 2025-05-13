@@ -6,7 +6,7 @@ import json
 def get_crypto_data(crypto,fiat):
     headers = {
     'Accepts': 'application/json',
-    'X-CMC_PRO_API_KEY': st.secrets["API_KEY"],
+    'X-CMC_PRO_API_KEY': st.secrets["f4bc2790-90b2-455a-9146-a30896967a23"],
     }
 
     response = requests.get(f"https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?symbol={crypto}&convert={fiat}"
