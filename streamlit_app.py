@@ -11,7 +11,7 @@ st.set_page_config(page_title="🌱 Energy saver Spain", layout="wide")
 
 st.markdown("""
     <style>
-    .main {
+    body {
         background-color: #f0f9f9;
     }
 
