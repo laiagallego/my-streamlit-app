@@ -7,9 +7,9 @@ import plotly.graph_objects as go
 from datetime import datetime, timedelta
 from streamlit_javascript import st_javascript
 
-is_dark = st_javascript("window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches")
-
 st.set_page_config(page_title="🌱 Energy saver Spain", layout="wide")
+
+is_dark = st_javascript("window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches")
 
 st.markdown("""
     <style>
