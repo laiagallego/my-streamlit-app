@@ -21,6 +21,14 @@ st.markdown("""
         padding-left: 375px;
         padding-right: 375px;
     }
+    @media (max-width: 720px) {
+      .block-container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    }
 
     .st-bd {
         background-color: #ffffff;
