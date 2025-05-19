@@ -5,8 +5,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.graph_objects as go
 from datetime import datetime, timedelta
+from streamlit_javascript import st_javascript
 
-# Page config
+is_dark = st_javascript("window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches")
+
 st.set_page_config(page_title="🌱 Energy saver Spain", layout="wide")
 
 st.markdown("""
@@ -49,6 +51,24 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
+if is_dark:
+    st.markdown("""
+        <style>
+        input, textarea, select, .stTextInput > div > div > input, .stSelectbox > div > div > div {
+            background-color: #222222 !important;
+            color: #ffffff !important;
+        }
+        .stTextInput > div > div > input {
+            border: 1px solid #444444 !important;
+        }
+        .stSelectbox > div > div > div {
+            border: 1px solid #444444 !important;
+        }
+        label, .stSelectbox label, .stTextInput label {
+            color: #ffffff !important;
+        }
+        </style>
+    """, unsafe_allow_html=True)
 
 
 # APIs
