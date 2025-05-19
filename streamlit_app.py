@@ -146,7 +146,7 @@ st.title("🌱 Energy saver app for Spain")
 st.markdown("Analyze your energy consumption using real-time **climate**, **air quality**, and **electric grid** data.")
 
 city = st.text_input("🏩️ Enter your city:", "Madrid")
-region_code = st.text_input("🏟️ ElectricityMap Region Code:", "ES", disabled=True)
+region_code = st.text_input("🏟️ Region code:", "ES", disabled=True)
 heating_type = st.selectbox("🔥 Select your heating type:", ["Electric", "Gas", "Heat pump"])
 
 if st.button("Analyze", key="analyze_button"):
