@@ -18,8 +18,8 @@ st.markdown("""
     .block-container {
         padding-top: 2rem;
         padding-bottom: 2rem;
-        padding-left: 400px;
-        padding-right: 400px;
+        padding-left: 375px;
+        padding-right: 375px;
     }
 
     .st-bd {
