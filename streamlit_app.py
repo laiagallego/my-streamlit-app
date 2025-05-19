@@ -184,8 +184,8 @@ if st.button("Analyze", key="analyze_button"):
             ax.set_ylabel("Temperature (°C) / Estimated Energy (kWh)", fontsize=10)
             ax.tick_params(axis='both', labelsize=8)
             ax.legend(fontsize=8)
-            ax.set_facecolor('#f0f9f9')
-            fig.patch.set_facecolor('#f0f9f9')
+            ax.set_facecolor('#ffffff')
+            fig.patch.set_facecolor('#ffffff')
             st.pyplot(fig)
         
             st.write("### Power production breakdown")
