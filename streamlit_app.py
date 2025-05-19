@@ -21,12 +21,12 @@ st.markdown("""
         padding-left: 375px;
         padding-right: 375px;
     }
-    @media (max-width: 720px) {
+    @media (max-width: 1170px) {
       .block-container {
         padding-top: 2rem;
         padding-bottom: 2rem;
-        padding-left:1170px;
-        padding-right: 1170px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
     }
 
