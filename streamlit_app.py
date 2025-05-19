@@ -54,17 +54,29 @@ st.markdown("""
 if is_dark:
     st.markdown("""
         <style>
+        /* Main input and selectbox */
         input, textarea, select, .stTextInput > div > div > input, .stSelectbox > div > div > div {
             background-color: #222222 !important;
             color: #ffffff !important;
         }
-        .stTextInput > div > div > input {
-            border: 1px solid #444444 !important;
-        }
+        .stTextInput > div > div > input,
         .stSelectbox > div > div > div {
             border: 1px solid #444444 !important;
         }
         label, .stSelectbox label, .stTextInput label {
+            color: #ffffff !important;
+        }
+        /* Dropdown menu for selectbox */
+        .stSelectbox [data-baseweb="popover"] > div {
+            background-color: #222222 !important;
+            color: #ffffff !important;
+        }
+        .stSelectbox [data-baseweb="option"] {
+            background-color: #222222 !important;
+            color: #ffffff !important;
+        }
+        .stSelectbox [data-baseweb="option"]:hover {
+            background-color: #444444 !important;
             color: #ffffff !important;
         }
         </style>
