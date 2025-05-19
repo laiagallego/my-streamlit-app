@@ -12,7 +12,7 @@ st.set_page_config(page_title="🌱 Energy saver Spain", layout="wide")
 st.markdown("""
     <style>
     .main {
-        background-color: #f0f9f9;
+        background-color: #ffffff;
     }
 
     .block-container {
@@ -154,8 +154,8 @@ if st.button("Analyze", key="analyze_button"):
             values = [estimate_energy_use(temp, t) for t in types]
             fig_bar, ax_bar = plt.subplots(figsize=(4, 2))
             ax_bar.bar(types, values, color=['skyblue', 'orange', 'green'])
-            ax_bar.set_facecolor('#f0f9f9')
-            fig_bar.patch.set_facecolor('#f0f9f9')
+            ax_bar.set_facecolor('#ffffff')
+            fig_bar.patch.set_facecolor('#ffffff')
             ax_bar.tick_params(axis='both', labelsize=8)
             ax_bar.set_ylabel("Estimated kWh", fontsize=10)
             st.pyplot(fig_bar)
