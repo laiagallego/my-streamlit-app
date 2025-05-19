@@ -75,10 +75,6 @@ if is_dark:
             background-color: #444444 !important;
             color: #ffffff !important;
         }
-        .stSelectbox [data-baseweb="option"]:hover {
-            background-color: #444444 !important;
-            color: #ffffff !important;
-        }
         </style>
     """, unsafe_allow_html=True)
 
