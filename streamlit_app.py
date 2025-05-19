@@ -25,8 +25,8 @@ st.markdown("""
       .block-container {
         padding-top: 2rem;
         padding-bottom: 2rem;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left:1170px;
+        padding-right: 1170px;
     }
     }
 
