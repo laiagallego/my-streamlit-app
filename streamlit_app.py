@@ -199,8 +199,8 @@ if st.button("Analyze", key="analyze_button"):
             stacked.plot.area(ax=ax2, colormap='Set2')
             ax2.set_ylabel("Estimated Energy (kWh)", fontsize=10)
             ax2.tick_params(axis='both', labelsize=8)
-            ax2.set_facecolor('#f0f9f9')
-            fig2.patch.set_facecolor('#f0f9f9')
+            ax2.set_facecolor('#ffffff')
+            fig2.patch.set_facecolor('#ffffff')
             st.pyplot(fig2)
 
             avg_electric = stacked['Electric'].mean()
@@ -229,8 +229,8 @@ if st.button("Analyze", key="analyze_button"):
                 ax_poll.bar(df_pollutants['Pollutant'], df_pollutants['μg/m³'], color='teal')
                 ax_poll.set_ylabel("Concentration (μg/m³)", fontsize=10)  # Título eje Y
                 ax_poll.tick_params(axis='both', labelsize=8)
-                ax_poll.set_facecolor('#f0f9f9')
-                fig_poll.patch.set_facecolor('#f0f9f9')
+                ax_poll.set_facecolor('#ffffff')
+                fig_poll.patch.set_facecolor('#ffffff')
                 st.pyplot(fig_poll)
 
                 if aqi <= 2:
@@ -265,8 +265,8 @@ if st.button("Analyze", key="analyze_button"):
                 ))
 
                 fig_gauge.update_layout(
-                    paper_bgcolor="#f0f9f9", 
-                    plot_bgcolor="#f0f9f9"
+                    paper_bgcolor="#ffffff", 
+                    plot_bgcolor="#ffffff"
                 )
                 
                 st.plotly_chart(fig_gauge)
@@ -307,8 +307,8 @@ if st.button("Analyze", key="analyze_button"):
         
                 fig_sources.update_layout(
                     margin=dict(l=20, r=20, t=30, b=30),
-                    paper_bgcolor='#f0f9f9',
-                    plot_bgcolor='#f0f9f9',
+                    paper_bgcolor='#ffffff',
+                    plot_bgcolor='#ffffff',
                     yaxis_title="Power (MW)",
                     xaxis_title="Time"
                 )
