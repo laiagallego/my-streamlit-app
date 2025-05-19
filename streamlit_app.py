@@ -66,12 +66,20 @@ if is_dark:
         label, .stSelectbox label, .stTextInput label {
             color: #ffffff !important;
         }
-        /* Dropdown menu for selectbox */
-        .stSelectbox [data-baseweb="popover"] > div {
+        /* Dropdown menu for selectbox (BaseWeb) */
+        div[data-baseweb="popover"] {
             background-color: #222222 !important;
             color: #ffffff !important;
         }
-        .stSelectbox [data-baseweb="option"] {
+        div[data-baseweb="menu"] {
+            background-color: #222222 !important;
+            color: #ffffff !important;
+        }
+        div[data-baseweb="option"] {
+            background-color: #222222 !important;
+            color: #ffffff !important;
+        }
+        div[data-baseweb="option"]:hover, div[data-baseweb="option"][aria-selected="true"] {
             background-color: #444444 !important;
             color: #ffffff !important;
         }
