@@ -49,6 +49,14 @@ st.markdown("""
         font-size: 16px;
         font-weight: bold;
     }
+    div[data-baseweb="option"] {
+            background-color: #222222 !important;
+            color: #ffffff !important;
+        }
+        div[data-baseweb="option"]:hover, div[data-baseweb="option"][aria-selected="true"] {
+            background-color: #444444 !important;
+            color: #ffffff !important;
+        }
     </style>
 """, unsafe_allow_html=True)
 if is_dark:
