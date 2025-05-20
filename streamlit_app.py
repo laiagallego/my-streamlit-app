@@ -146,19 +146,35 @@ st.title("🌱 Energy saver app for Spain")
 st.markdown("Analyze your energy consumption using real-time **climate**, **air quality**, and **electric grid** data.")
 
 city = st.selectbox(
-    "🏢 Select your city:",
+    "🏢 Selecciona tu ciudad:",
     [
-        "Madrid", "Barcelona", "Valencia", "Sevilla", "Zaragoza",
-        "Málaga", "Murcia", "Palma", "Las Palmas de Gran Canaria", "Bilbao", "Alacant",
-        "Valladolid", "Córdoba", "Vigo", "Gijón", "Hospitalet de Llobregat",
-        "A Coruña", "Vitoria-Gasteiz", "Granada", "Elche", "Oviedo",
-        "Badalona", "Cartagena", "Terrassa", "Jerez de la Frontera", "Sabadell", "Santa Cruz de Tenerife", 
-        "Móstoles", "Alcalá de Henares", "Fuenlabrada", "Pamplona", "Almeria", "Leganés", "San Sebastián",
-        "Castellón de la Plana", "Burgos", "Santander", "Albacete", "Getafe", "Alcorcón", "Logroño", 
-        "Manresa", "Badajoz", "Salamanca", "Huelva", "Marbella", "Lleida", "Tarragona", 
-        "León", "Benidorm"
+        "Madrid", "Barcelona", "Valencia", "Sevilla", "Zaragoza", "Málaga", "Murcia", "Palma",
+        "Las Palmas de Gran Canaria", "Bilbao", "Alicante", "Córdoba", "Valladolid", "Vigo",
+        "Gijón", "L'Hospitalet de Llobregat", "A Coruña", "Vitoria-Gasteiz", "Granada", "Elche",
+        "Oviedo", "Badalona", "Cartagena", "Terrassa", "Jerez de la Frontera", "Sabadell",
+        "Santa Cruz de Tenerife", "Móstoles", "Alcalá de Henares", "Fuenlabrada", "Pamplona",
+        "Almería", "Leganés", "San Sebastián", "Castellón de la Plana", "Burgos", "Santander",
+        "Albacete", "Getafe", "Alcorcón", "Logroño", "San Cristóbal de La Laguna", "Badajoz",
+        "Salamanca", "Huelva", "Marbella", "Lérida", "Tarragona", "León", "Dos Hermanas",
+        "Parla", "Mataró", "Torrejón de Ardoz", "Cádiz", "Santa Coloma de Gramenet", "Jaén",
+        "Algeciras", "Reus", "Ourense", "Telde", "Baracaldo", "Torrejón de Ardoz", "Santiago de Compostela",
+        "Lugo", "San Fernando", "Cornellá de Llobregat", "Avilés", "Girona", "Cáceres",
+        "Melilla", "Toledo", "Lorca", "Ciudad Real", "San Baudilio de Llobregat", "Guadalajara",
+        "Ceuta", "Pontevedra", "Rubí", "Manresa", "Toledo", "Ferrol", "Cuenca", "Roquetas de Mar",
+        "Benidorm", "Pozuelo de Alarcón", "Arrecife", "Chiclana de la Frontera", "Zamora",
+        "San Vicente del Raspeig", "El Puerto de Santa María", "Talavera de la Reina",
+        "Majadahonda", "Orihuela", "Coslada", "Valdemoro", "Mollet del Vallès", "Sagunto",
+        "Collado Villalba", "Aranjuez", "Ávila", "Torremolinos", "Palencia", "Elda", "Santa Lucía de Tirajana",
+        "Granollers", "Villareal", "Motril", "Girona", "Ibiza", "Puerto Real", "Soria", "Sanlúcar de Barrameda",
+        "Manacor", "Huesca", "Paterna", "Inca", "Segovia", "Denia", "Viladecans", "Antequera",
+        "Alcoy", "Rincón de la Victoria", "Figueras", "Cambrils", "Aranda de Duero", "Moncada y Reixach",
+        "Puertollano", "Ronda", "Cerdanyola del Vallès", "Estepona", "Gandía", "Torrevieja", "Irun",
+        "Eivissa", "Vic", "Benalmádena", "Don Benito", "Lucena", "Villena",
+        "Utrera", "Alcobendas", "San Sebastián de los Reyes", "El Ejido", "Valdepeñas", "Gavá", "Sória", "Blanes",
+        "Igualada", "Teruel"
     ]
 )
+
 region_code = st.text_input("📍 Region code:", "ES", disabled=True)
 heating_type = st.selectbox("🔥 Select your heating type:", ["Electric", "Gas", "Heat pump"])
 
