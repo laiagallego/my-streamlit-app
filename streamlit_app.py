@@ -201,7 +201,7 @@ if st.button("Analyze", key="analyze_button"):
 
         # Tab 1: Current conditions
         with tabs[0]:
-            st.subheader("Current weather and energy use")
+            st.subheader("Current weather and energy use in {city_choice}")
             
             temp = current_weather['main']['temp']
             feels_like = current_weather['main']['feels_like']
