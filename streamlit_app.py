@@ -155,6 +155,22 @@ def score_energy_consumption_day(carbon_intensity, aqi, temp):
     final_score = (carbon_score * 0.5) + (aqi_score * 0.2) + (temp_score * 0.3)
     return round(final_score, 1)
 
+def wind_direction_arrow(deg):
+    dirs = [
+        ("N", "⬆"), ("NE", "↗"), ("E", "➡"), ("SE", "↘"),
+        ("S", "⬇"), ("SW", "↙"), ("W", "⬅"), ("NW", "↖")
+    ]
+    ix = int((deg + 22.5) % 360 // 45)
+    return dirs[ix][1], dirs[ix][0]
+
+def wind_speed_category(speed_kmh):
+    if speed_kmh < 10:
+        return "Calm", "green"
+    elif speed_kmh < 25:
+        return "Moderate", "orange"
+    else:
+        return "Strong", "red"
+
 # App
 st.title("🌱 Energy saver app for Spain")
 st.markdown("Analyze your energy consumption using real-time **climate**, **air quality**, and **electric grid** data.")
@@ -436,15 +452,75 @@ if st.button("Analyze", key="analyze_button"):
                 max_rad = max(radiation)
 
                 if max_rad > 600:
-                    st.success(f"☀️ Solar radiation is high today (max {max_rad:.0f} W/m²). It's a great time to use solar energy!")
+                    st.success(f"☀️ Solar radiation is high today (max: {max_rad:.0f} W/m²). It's a great time to use solar energy!")
                 elif 300 <= max_rad <= 600:
-                    st.info(f"🌤️ Solar radiation is moderate today (max {max_rad:.0f} W/m²). Solar panels will work, but output may vary.")
+                    st.info(f"🌤️ Solar radiation is moderate today (max: {max_rad:.0f} W/m²). Solar panels will work, but output may vary.")
                 else:
-                    st.warning(f"🌥️ Solar radiation is low today (max {max_rad:.0f} W/m²). Solar panel performance may be limited.")
+                    st.warning(f"🌥️ Solar radiation is low today (max: {max_rad:.0f} W/m²). Solar panel performance may be limited.")
 
             else:
                 st.warning("No solar radiation data available for today.")
 
+            
+            st.subheader("Wind conditions")
+            wind = current_weather.get("wind", {})
+            wind_speed = wind.get("speed", 0)
+            wind_deg = wind.get("deg", 0)
+            wind_gust = wind.get("gust", None)
+            wind_speed_kmh = wind_speed * 3.6
+            wind_gust_kmh = wind_gust * 3.6 if wind_gust else None
+            arrow, compass = wind_direction_arrow(wind_deg)
+            wind_label, wind_color = wind_speed_category(wind_speed_kmh)
+
+            wind_col1, wind_col2 = st.columns([2, 3])
+            with wind_col1:
+                st.markdown(
+                    f"""
+                    <div style="margin-top: 6em; display: flex; flex-direction: column; justify-content: center; height: 100%; text-align: center;">
+                        <div style="margin-bottom: 0.5em;">
+                            <b>Speed:</b> <span style='color:{wind_color};font-weight:bold'>{wind_speed_kmh:.1f} km/h</span>
+                        </div>
+                        <div style="margin-bottom: 0.5em;">
+                            <b>Direction:</b> {arrow} <b>{compass}</b> ({wind_deg}°)
+                        </div>
+                        {"<div style='margin-bottom: 0.5em;'><b>Gusts:</b> <span style='color:orange;font-weight:bold'>{:.1f} km/h</span></div>".format(wind_gust_kmh) if wind_gust_kmh else ""}
+                        <div>
+                            <b>Category:</b> <span style='color:{wind_color};font-weight:bold'>{wind_label}</span>
+                        </div>
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
+                
+                if wind_speed_kmh >= 25 or (wind_gust_kmh and wind_gust_kmh >= 40):
+                    st.warning(f"🌬 Strong wind from {compass} – {wind_speed_kmh:.0f} km/h" +
+                               (f" with gusts up to {wind_gust_kmh:.0f} km/h." if wind_gust_kmh else "."))
+                elif wind_speed_kmh >= 15:
+                    st.info(f"💨 Moderate wind from {compass} – {wind_speed_kmh:.0f} km/h.")
+
+             with wind_col2:
+                
+                fig, ax = plt.subplots(figsize=(2.5,2.5), subplot_kw={'projection': 'polar'})
+                theta = np.deg2rad((270 - wind_deg) % 360)
+                ax.arrow(theta, 0, 0, 1, width=0.08, head_width=0.25, head_length=0.2, fc=wind_color, ec=wind_color)
+                ax.set_yticklabels([])
+                ax.set_xticks(np.deg2rad(np.arange(0, 360, 45)))
+                ax.set_xticklabels(['E', 'NE', 'N', 'NW', 'W', 'SW', 'S', 'SE'])
+                ax.set_theta_zero_location('N')
+                ax.set_theta_direction(-1)
+                ax.set_title("Wind direction", fontsize=10)
+                ax.grid(False)
+                ax.spines['polar'].set_visible(False)
+                st.pyplot(fig)
+
+            if wind_speed_kmh >= 25:
+                st.info("💨 Strong winds favor higher wind power generation, increasing the share of renewable electricity in the grid.")
+            elif wind_speed_kmh >= 15:
+                st.info("🌬 Moderate wind allows wind turbines to operate efficiently, contributing to clean energy production.")
+            else:
+                st.success(f"🍃 Calm wind from {compass} – {wind_speed_kmh:.0f} km/h.")
+                st.info("🍃 Light wind: wind power generation will be low, so the grid will rely more on other energy sources.")
+        
         # Tab 6: Score and recommendation
         with tabs[5]:
             st.subheader("Efficiency score and advice")
