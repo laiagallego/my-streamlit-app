@@ -7,10 +7,12 @@ import plotly.graph_objects as go
 from datetime import datetime, timedelta
 from streamlit_javascript import st_javascript
 
+# Page configuration
 st.set_page_config(page_title="🌱 Energy saver Spain", layout="wide")
 
 is_dark = st_javascript("window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches")
 
+# Page styles
 st.markdown("""
     <style>
     .main {
@@ -87,10 +89,11 @@ if is_dark:
     """, unsafe_allow_html=True)
 
 
-# APIs
+# Get API keys from Streamlit Cloud Secrets
 OPENWEATHER_API_KEY = st.secrets["OPENWEATHER_API_KEY"]
 ELECTRICITYMAP_API_KEY = st.secrets["ELECTRICITYMAP_API_KEY"]
 
+# HTTP requests from APIs
 def get_weather_forecast(city):
     url = f"https://api.openweathermap.org/data/2.5/forecast?q={city}&appid={OPENWEATHER_API_KEY}&units=metric"
     response = requests.get(url)
