@@ -477,7 +477,7 @@ if st.button("Analyze", key="analyze_button"):
             with wind_col1:
                 st.markdown(
                     f"""
-                    <div style="margin-top: 8em; display: flex; flex-direction: column; justify-content: center; height: 100%; text-align: center;">
+                    <div style="margin-top: 6em; display: flex; flex-direction: column; justify-content: center; height: 100%; text-align: center;">
                         <div style="margin-bottom: 0.5em;">
                             <b>Speed:</b> <span style='color:{wind_color};font-weight:bold'>{wind_speed_kmh:.1f} km/h</span>
                         </div>
