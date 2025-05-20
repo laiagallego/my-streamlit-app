@@ -145,10 +145,8 @@ def score_energy_consumption_day(carbon_intensity, aqi, temp):
 st.title("🌱 Energy saver app for Spain")
 st.markdown("Analyze your energy consumption using real-time **climate**, **air quality**, and **electric grid** data.")
 
-city = st.selectbox(
-    "🏢 Selecciona tu ciudad:",
-    [
-        "Madrid", "Barcelona", "Valencia", "Sevilla", "Zaragoza", "Palma",
+city_options = [
+    "Madrid", "Barcelona", "Valencia", "Sevilla", "Zaragoza", "Palma",
         "Las Palmas de Gran Canaria", "Bilbao", "Alicante", "Córdoba", "Valladolid", "Vigo",
         "Gijón", "L'Hospitalet de Llobregat", "A Coruña", "Vitoria-Gasteiz", "Granada", "Elche",
         "Oviedo", "Badalona", "Cartagena", "Terrassa", "Jerez de la Frontera", "Sabadell",
@@ -158,7 +156,7 @@ city = st.selectbox(
         "Salamanca", "Huelva", "Marbella", "Lérida", "Tarragona", "León", "Dos Hermanas",
         "Parla", "Mataró", "Torrejón de Ardoz", "Cádiz", "Santa Coloma de Gramenet", "Jaén",
         "Algeciras", "Reus", "Ourense", "Telde", "Baracaldo", "Málaga", "Torrejón de Ardoz", 
-        "Santiago de Compostela", "Lugo", "San Fernando", "Cornellá de Llobregat", "Avilés", "Girona", 
+        "Santiago de Compostela", "Lugo", "San Fernando", "Avilés", "Girona", 
         "Melilla", "Toledo", "Lorca", "Ciudad Real", "San Baudilio de Llobregat", "Guadalajara",
         "Ceuta", "Pontevedra", "Rubí", "Manresa", "Toledo", "Ferrol", "Cuenca", "Roquetas de Mar",
         "Benidorm", "Pozuelo de Alarcón", "Arrecife", "Murcia", "Chiclana de la Frontera", "Zamora",
@@ -172,9 +170,7 @@ city = st.selectbox(
         "Eivissa", "Vic", "Benalmádena", "Don Benito", "Lucena", "Villena",
         "Utrera", "Alcobendas", "San Sebastián de los Reyes", "El Ejido", "Valdepeñas", "Gavá", "Sória", "Blanes",
         "Igualada", "Teruel"
-    ]
-)
-
+]
 city_choice = st.selectbox(
     "🏢 Select your city (or choose 'Other' to type):",
     ["Other (type below)"] + city_options 
