@@ -434,14 +434,13 @@ if st.button("Analyze", key="analyze_button"):
                 ax_rad.tick_params(axis='x', rotation=45)
                 st.pyplot(fig_rad)
                 max_rad = max(radiation)
-                st.info(f"☀️ Maximum solar radiation today: {max_rad:.0f} W/m²")
 
                 if max_rad > 600:
-                    st.success("☀️ Solar radiation is high today. It's a great time to use solar energy!")
+                    st.success(f"☀️ Solar radiation is high today ({max_rad:.0f} W/m²). It's a great time to use solar energy!")
                 elif 300 <= max_rad <= 600:
-                    st.info("🌤️ Solar radiation is moderate today. Solar panels will work, but output may vary.")
+                    st.info(f"🌤️ Solar radiation is moderate today ({max_rad:.0f} W/m²). Solar panels will work, but output may vary.")
                 else:
-                    st.warning("🌥️ Solar radiation is low today. Solar panel performance may be limited.")
+                    st.warning(f"🌥️ Solar radiation is low today ({max_rad:.0f} W/m²). Solar panel performance may be limited.")
 
             else:
                 st.warning("No solar radiation data available for today.")
