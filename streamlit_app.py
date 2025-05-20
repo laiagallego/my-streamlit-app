@@ -427,7 +427,7 @@ if st.button("Analyze", key="analyze_button"):
                     "Radiation (W/m²)": radiation
                 })
                 fig_rad, ax_rad = plt.subplots(figsize=(7, 3))
-                ax_rad.plot(df_rad["Hour"], df_rad["Radiation (W/m²)"], color="gold", marker="o")
+                ax_rad.plot(df_rad["Hour"], df_rad["Radiation (W/m²)"], color="gold")
                 ax_rad.set_ylabel("Radiation (W/m²)")
                 ax_rad.set_xlabel("Hour")
                 ax_rad.set_title("Hourly Solar Radiation Today")
