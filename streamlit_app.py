@@ -493,14 +493,6 @@ if st.button("Analyze", key="analyze_button"):
                     unsafe_allow_html=True
                 )
             
-                if wind_speed_kmh >= 25 or (wind_gust_kmh and wind_gust_kmh >= 40):
-                    st.warning(f"🌬 Strong wind from {compass} – {wind_speed_kmh:.0f} km/h" +
-                               (f" with gusts up to {wind_gust_kmh:.0f} km/h." if wind_gust_kmh else "."))
-                elif wind_speed_kmh >= 15:
-                    st.info(f"💨 Moderate wind from {compass} – {wind_speed_kmh:.0f} km/h.")
-                else: 
-                    st.success(f"🍃 Calm wind from {compass} – {wind_speed_kmh:.0f} km/h.")
-            
             with wind_col2:
                 fig, ax = plt.subplots(figsize=(2.5,2.5), subplot_kw={'projection': 'polar'})
                 theta = np.deg2rad((270 - wind_deg) % 360)
@@ -514,6 +506,14 @@ if st.button("Analyze", key="analyze_button"):
                 ax.grid(False)
                 ax.spines['polar'].set_visible(False)
                 st.pyplot(fig)
+
+            if wind_speed_kmh >= 25 or (wind_gust_kmh and wind_gust_kmh >= 40):
+                st.warning(f"🌬 Strong wind from {compass} – {wind_speed_kmh:.0f} km/h" +
+                               (f" with gusts up to {wind_gust_kmh:.0f} km/h." if wind_gust_kmh else "."))
+            elif wind_speed_kmh >= 15:
+                st.info(f"💨 Moderate wind from {compass} – {wind_speed_kmh:.0f} km/h.")
+            else: 
+                st.success(f"🍃 Calm wind from {compass} – {wind_speed_kmh:.0f} km/h.")
             
             if wind_speed_kmh >= 25:
                 st.success("💨 Strong winds favor higher wind power generation, increasing the share of renewable electricity in the grid.")
