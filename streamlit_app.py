@@ -148,7 +148,7 @@ st.markdown("Analyze your energy consumption using real-time **climate**, **air 
 city = st.selectbox(
     "🏢 Selecciona tu ciudad:",
     [
-        "Madrid", "Barcelona", "Valencia", "Sevilla", "Zaragoza", "Murcia", "Palma",
+        "Madrid", "Barcelona", "Valencia", "Sevilla", "Zaragoza", "Palma",
         "Las Palmas de Gran Canaria", "Bilbao", "Alicante", "Córdoba", "Valladolid", "Vigo",
         "Gijón", "L'Hospitalet de Llobregat", "A Coruña", "Vitoria-Gasteiz", "Granada", "Elche",
         "Oviedo", "Badalona", "Cartagena", "Terrassa", "Jerez de la Frontera", "Sabadell",
@@ -161,7 +161,7 @@ city = st.selectbox(
         "Santiago de Compostela", "Lugo", "San Fernando", "Cornellá de Llobregat", "Avilés", "Girona", 
         "Melilla", "Toledo", "Lorca", "Ciudad Real", "San Baudilio de Llobregat", "Guadalajara",
         "Ceuta", "Pontevedra", "Rubí", "Manresa", "Toledo", "Ferrol", "Cuenca", "Roquetas de Mar",
-        "Benidorm", "Pozuelo de Alarcón", "Arrecife", "Chiclana de la Frontera", "Zamora",
+        "Benidorm", "Pozuelo de Alarcón", "Arrecife", "Murcia", "Chiclana de la Frontera", "Zamora",
         "San Vicente del Raspeig", "El Puerto de Santa María", "Talavera de la Reina", "Cáceres",
         "Majadahonda", "Orihuela", "Coslada", "Valdemoro", "Mollet del Vallès", "Sagunto",
         "Collado Villalba", "Aranjuez", "Ávila", "Torremolinos", "Palencia", "Elda", "Santa Lucía de Tirajana",
