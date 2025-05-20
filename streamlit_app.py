@@ -498,6 +498,8 @@ if st.button("Analyze", key="analyze_button"):
                                (f" with gusts up to {wind_gust_kmh:.0f} km/h." if wind_gust_kmh else "."))
                 elif wind_speed_kmh >= 15:
                     st.info(f"💨 Moderate wind from {compass} – {wind_speed_kmh:.0f} km/h.")
+                else: 
+                    st.success(f"🍃 Calm wind from {compass} – {wind_speed_kmh:.0f} km/h.")
             
             with wind_col2:
                 fig, ax = plt.subplots(figsize=(2.5,2.5), subplot_kw={'projection': 'polar'})
@@ -518,7 +520,6 @@ if st.button("Analyze", key="analyze_button"):
             elif wind_speed_kmh >= 15:
                 st.info("🌬 Moderate wind allows wind turbines to operate efficiently, contributing to clean energy production.")
             else:
-                st.success(f"🍃 Calm wind from {compass} – {wind_speed_kmh:.0f} km/h.")
                 st.warning("🍃 Light wind: wind power generation will be low, so the grid will rely more on other energy sources.")
 
         
