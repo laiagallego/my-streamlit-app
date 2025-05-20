@@ -416,6 +416,8 @@ if st.button("Analyze", key="analyze_button"):
             else:
                 st.warning("❌ No historical energy data available for this region at the moment.")
 
+            solar_radiation = get_solar_radiation(lat, lon)
+            
             st.subheader("Solar radiation today")
             if solar_radiation and "hourly" in solar_radiation and "shortwave_radiation" in solar_radiation["hourly"]:
                 hours = solar_radiation["hourly"]["time"]
