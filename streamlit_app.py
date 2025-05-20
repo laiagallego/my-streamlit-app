@@ -88,9 +88,6 @@ if is_dark:
 
 
 # APIs
-OPENWEATHER_API_KEY = "1e9d3084d0351393a4f0d21d016bcc27"
-ELECTRICITYMAP_API_KEY = "wyWUK93voonAG3F3U7N8"
-
 def get_weather_forecast(city):
     url = f"https://api.openweathermap.org/data/2.5/forecast?q={city}&appid={OPENWEATHER_API_KEY}&units=metric"
     response = requests.get(url)
