@@ -145,7 +145,20 @@ def score_energy_consumption_day(carbon_intensity, aqi, temp):
 st.title("🌱 Energy saver app for Spain")
 st.markdown("Analyze your energy consumption using real-time **climate**, **air quality**, and **electric grid** data.")
 
-city = st.text_input("🏢 Enter your city:", "Madrid")
+city = st.selectbox(
+    "🏢 Select your city:",
+    [
+        "Madrid", "Barcelona", "Valencia", "Sevilla", "Zaragoza",
+        "Málaga", "Murcia", "Palma", "Las Palmas de Gran Canaria", "Bilbao", "Alacant",
+        "Valladolid", "Córdoba", "Vigo", "Gijón", "Hospitalet de Llobregat",
+        "A Coruña", "Vitoria-Gasteiz", "Granada", "Elche", "Oviedo",
+        "Badalona", "Cartagena", "Terrassa", "Jerez de la Frontera", "Sabadell", "Santa Cruz de Tenerife", 
+        "Móstoles", "Alcalá de Henares", "Fuenlabrada", "Pamplona", "Almeria", "Leganés", "San Sebastián",
+        "Castellón de la Plana", "Burgos", "Santander", "Albacete", "Getafe", "Alcorcón", "Logroño", 
+        "Manresa", "Badajoz", "Salamanca", "Huelva", "Marbella", "Lleida", "Tarragona", 
+        "León", "Benidorm"
+    ]
+)
 region_code = st.text_input("📍 Region code:", "ES", disabled=True)
 heating_type = st.selectbox("🔥 Select your heating type:", ["Electric", "Gas", "Heat pump"])
 
