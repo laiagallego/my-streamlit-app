@@ -88,8 +88,8 @@ if is_dark:
 
 
 # APIs
-openweather_api_key = st.secrets["OPENWEATHER_API_KEY"]
-electricitymap_api_key = st.secrets["ELECTRICITYMAP_API_KEY"]
+OPENWEATHER_API_KEY = st.secrets["OPENWEATHER_API_KEY"]
+ELECTRICITYMAP_API_KEY = st.secrets["ELECTRICITYMAP_API_KEY"]
 
 def get_weather_forecast(city):
     url = f"https://api.openweathermap.org/data/2.5/forecast?q={city}&appid={OPENWEATHER_API_KEY}&units=metric"
