@@ -514,12 +514,12 @@ if st.button("Analyze", key="analyze_button"):
                 st.pyplot(fig)
             
             if wind_speed_kmh >= 25:
-                st.info("💨 Strong winds favor higher wind power generation, increasing the share of renewable electricity in the grid.")
+                st.success("💨 Strong winds favor higher wind power generation, increasing the share of renewable electricity in the grid.")
             elif wind_speed_kmh >= 15:
                 st.info("🌬 Moderate wind allows wind turbines to operate efficiently, contributing to clean energy production.")
             else:
                 st.success(f"🍃 Calm wind from {compass} – {wind_speed_kmh:.0f} km/h.")
-                st.info("🍃 Light wind: wind power generation will be low, so the grid will rely more on other energy sources.")
+                st.warning("🍃 Light wind: wind power generation will be low, so the grid will rely more on other energy sources.")
 
         
         # Tab 6: Score and recommendation
