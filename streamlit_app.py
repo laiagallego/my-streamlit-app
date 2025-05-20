@@ -146,7 +146,7 @@ st.title("🌱 Energy saver app for Spain")
 st.markdown("Analyze your energy consumption using real-time **climate**, **air quality**, and **electric grid** data.")
 
 city_options = [
-    "Madrid", "Barcelona", "Valencia", "Sevilla", "Zaragoza", "Palma",
+    "Barcelona", "Valencia", "Sevilla", "Zaragoza", "Palma",
         "Las Palmas de Gran Canaria", "Bilbao", "Alicante", "Córdoba", "Valladolid", "Vigo",
         "Gijón", "L'Hospitalet de Llobregat", "A Coruña", "Vitoria-Gasteiz", "Granada", "Elche",
         "Oviedo", "Badalona", "Cartagena", "Terrassa", "Jerez de la Frontera", "Sabadell",
@@ -172,8 +172,8 @@ city_options = [
         "Igualada", "Teruel"
 ]
 city_choice = st.selectbox(
-    "🏢 Select your city (or choose 'Other' to type):",
-    ["Other (type below)"] + city_options 
+    "🏢 Select your city:",
+    ["Madrid"] + ["Other (type below)"] + city_options 
 )
 if city_choice == "Other (type below)":
     city = st.text_input("Type your city:", "")
