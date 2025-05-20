@@ -175,6 +175,15 @@ city = st.selectbox(
     ]
 )
 
+city_choice = st.selectbox(
+    "🏢 Select your city (or choose 'Other' to type):",
+    ["Other (type below)"] + city_options 
+)
+if city_choice == "Other (type below)":
+    city = st.text_input("Type your city:", "")
+else:
+    city = city_choice
+
 region_code = st.text_input("📍 Region code:", "ES", disabled=True)
 heating_type = st.selectbox("🔥 Select your heating type:", ["Electric", "Gas", "Heat pump"])
 
