@@ -127,6 +127,17 @@ def get_power_breakdown_history(region):
     response = requests.get(url, headers=headers)
     return response.json() if response.status_code == 200 else None
 
+def get_solar_radiation(lat, lon):
+    today = datetime.now().strftime("%Y-%m-%d")
+    url = (
+        f"https://api.open-meteo.com/v1/forecast?"
+        f"latitude={lat}&longitude={lon}&hourly=shortwave_radiation&start_date={today}&end_date={today}&timezone=Europe/Madrid"
+    )
+    response = requests.get(url)
+    if response.status_code == 200:
+        return response.json()
+    return None
+
 # Scores
 def estimate_energy_use(temp, heating):
     if heating == "Electric":
@@ -404,7 +415,35 @@ if st.button("Analyze", key="analyze_button"):
                     st.warning("There is not enough data to analyze which energy source is used the most.")
             else:
                 st.warning("❌ No historical energy data available for this region at the moment.")
-        
+
+        st.subheader("Solar radiation today")
+            if solar_radiation and "hourly" in solar_radiation and "shortwave_radiation" in solar_radiation["hourly"]:
+                hours = solar_radiation["hourly"]["time"]
+                radiation = solar_radiation["hourly"]["shortwave_radiation"]
+                df_rad = pd.DataFrame({
+                    "Hour": pd.to_datetime(hours).strftime("%H:%M"),
+                    "Radiation (W/m²)": radiation
+                })
+                fig_rad, ax_rad = plt.subplots(figsize=(7, 3))
+                ax_rad.plot(df_rad["Hour"], df_rad["Radiation (W/m²)"], color="gold", marker="o")
+                ax_rad.set_ylabel("Radiation (W/m²)")
+                ax_rad.set_xlabel("Hour")
+                ax_rad.set_title("Hourly Solar Radiation Today")
+                ax_rad.tick_params(axis='x', rotation=45)
+                st.pyplot(fig_rad)
+                max_rad = max(radiation)
+                st.info(f"☀️ Maximum solar radiation today: {max_rad:.0f} W/m²")
+
+                if max_rad > 600:
+                    st.success("☀️ Solar radiation is high today. It's a great time to use solar energy!")
+                elif 300 <= max_rad <= 600:
+                    st.info("🌤️ Solar radiation is moderate today. Solar panels will work, but output may vary.")
+                else:
+                    st.warning("🌥️ Solar radiation is low today. Solar panel performance may be limited.")
+
+            else:
+                st.warning("No solar radiation data available for today.")
+
         # Tab 6: Score and recommendation
         with tabs[5]:
             st.subheader("Efficiency score and advice")
