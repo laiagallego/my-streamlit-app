@@ -485,7 +485,6 @@ if st.button("Analyze", key="analyze_button"):
                             <b>Direction:</b> {arrow} <b>{compass}</b> ({wind_deg}°)
                         </div>
                         {"<div style='margin-bottom: 0.5em;'><b>Gusts:</b> <span style='color:orange;font-weight:bold'>{:.1f} km/h</span></div>".format(wind_gust_kmh) if wind_gust_kmh else ""}
-                        <div>
                     </div>
                     """,
                     unsafe_allow_html=True
