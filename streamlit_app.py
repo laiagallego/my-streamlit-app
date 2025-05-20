@@ -164,6 +164,14 @@ def wind_direction_arrow(deg):
     ix = int((deg + 22.5) % 360 // 45)
     return dirs[ix][1], dirs[ix][0]
 
+def wind_speed_category(speed_kmh):
+    if speed_kmh < 10:
+        return "Calm", "green"
+    elif speed_kmh < 25:
+        return "Moderate", "orange"
+    else:
+        return "Strong", "red"
+
 # App
 st.title("🌱 Energy saver app for Spain")
 st.markdown("Analyze your energy consumption using real-time **climate**, **air quality**, and **electric grid** data.")
