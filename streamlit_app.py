@@ -160,15 +160,15 @@ city_options = [
         "Melilla", "Toledo", "Lorca", "Ciudad Real", "Guadalajara", "Roquetas de Mar",
         "Ceuta", "Pontevedra", "Rubí", "Manresa", "Toledo", "Ferrol", "Cuenca", 
         "Benidorm", "Pozuelo de Alarcón", "Arrecife", "Murcia", "Chiclana de la Frontera", "Zamora",
-        "San Vicente del Raspeig", "El Puerto de Santa María", "Talavera de la Reina", "Cáceres",
+        "Talavera de la Reina", "Cáceres", "Valdepeñas", "Gavá", "Sória", "Blanes",
         "Majadahonda", "Orihuela", "Coslada", "Valdemoro", "Mollet del Vallès", "Sagunto",
         "Collado Villalba", "Aranjuez", "Ávila", "Torremolinos", "Palencia", "Elda", 
         "Granollers", "Villareal", "Motril", "Girona", "Ibiza", "Puerto Real", "Soria", "Sanlúcar de Barrameda",
         "Manacor", "Huesca", "Paterna", "Inca", "Segovia", "Denia", "Viladecans", "Antequera",
         "Alcoy", "Rincón de la Victoria", "Figueras", "Cambrils", "Aranda de Duero", "Moncada y Reixach",
         "Puertollano", "Ronda", "Cerdanyola del Vallès", "Estepona", "Gandía", "Torrevieja", "Irun",
-        "Eivissa", "Vic", "Benalmádena", "Don Benito", "Lucena", "Villena",
-        "Utrera", "Alcobendas", "San Sebastián de los Reyes", "El Ejido", "Valdepeñas", "Gavá", "Sória", "Blanes",
+        "Eivissa", "Vic", "Benalmádena", "Don Benito", "Lucena", "Villena", "El Ejido",
+        "Utrera", "Alcobendas", "San Sebastián de los Reyes"
 ]
 city_choice = st.selectbox(
     "🏢 Select your city:",
