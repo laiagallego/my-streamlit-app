@@ -154,11 +154,11 @@ city_options = [
         "Almería", "Leganés", "San Sebastián", "Castellón de la Plana", "Burgos", "Santander",
         "Albacete", "Getafe", "Alcorcón", "Logroño", "San Cristóbal de La Laguna", "Badajoz",
         "Salamanca", "Huelva", "Marbella", "Lérida", "Tarragona", "León", "Dos Hermanas",
-        "Parla", "Mataró", "Cádiz", "Santa Coloma de Gramenet", "Jaén", "Santa Lucía de Tirajana",
+        "Parla", "Mataró", "Cádiz", "Santa Coloma de Gramenet", "Jaén", "Igualada", "Teruel"
         "Algeciras", "Reus", "Ourense", "Telde", "Baracaldo", "Málaga", "Torrejón de Ardoz", 
         "Santiago de Compostela", "Lugo", "San Fernando", "Avilés", "Girona", 
-        "Melilla", "Toledo", "Lorca", "Ciudad Real", "San Baudilio de Llobregat", "Guadalajara",
-        "Ceuta", "Pontevedra", "Rubí", "Manresa", "Toledo", "Ferrol", "Cuenca", "Roquetas de Mar",
+        "Melilla", "Toledo", "Lorca", "Ciudad Real", "Guadalajara", "Roquetas de Mar",
+        "Ceuta", "Pontevedra", "Rubí", "Manresa", "Toledo", "Ferrol", "Cuenca", 
         "Benidorm", "Pozuelo de Alarcón", "Arrecife", "Murcia", "Chiclana de la Frontera", "Zamora",
         "San Vicente del Raspeig", "El Puerto de Santa María", "Talavera de la Reina", "Cáceres",
         "Majadahonda", "Orihuela", "Coslada", "Valdemoro", "Mollet del Vallès", "Sagunto",
@@ -169,7 +169,6 @@ city_options = [
         "Puertollano", "Ronda", "Cerdanyola del Vallès", "Estepona", "Gandía", "Torrevieja", "Irun",
         "Eivissa", "Vic", "Benalmádena", "Don Benito", "Lucena", "Villena",
         "Utrera", "Alcobendas", "San Sebastián de los Reyes", "El Ejido", "Valdepeñas", "Gavá", "Sória", "Blanes",
-        "Igualada", "Teruel"
 ]
 city_choice = st.selectbox(
     "🏢 Select your city:",
