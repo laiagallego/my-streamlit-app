@@ -491,15 +491,14 @@ if st.button("Analyze", key="analyze_button"):
                     """,
                     unsafe_allow_html=True
                 )
-                
+            
                 if wind_speed_kmh >= 25 or (wind_gust_kmh and wind_gust_kmh >= 40):
                     st.warning(f"🌬 Strong wind from {compass} – {wind_speed_kmh:.0f} km/h" +
                                (f" with gusts up to {wind_gust_kmh:.0f} km/h." if wind_gust_kmh else "."))
                 elif wind_speed_kmh >= 15:
                     st.info(f"💨 Moderate wind from {compass} – {wind_speed_kmh:.0f} km/h.")
-
-             with wind_col2:
-                
+            
+            with wind_col2:
                 fig, ax = plt.subplots(figsize=(2.5,2.5), subplot_kw={'projection': 'polar'})
                 theta = np.deg2rad((270 - wind_deg) % 360)
                 ax.arrow(theta, 0, 0, 1, width=0.08, head_width=0.25, head_length=0.2, fc=wind_color, ec=wind_color)
@@ -512,7 +511,7 @@ if st.button("Analyze", key="analyze_button"):
                 ax.grid(False)
                 ax.spines['polar'].set_visible(False)
                 st.pyplot(fig)
-
+            
             if wind_speed_kmh >= 25:
                 st.info("💨 Strong winds favor higher wind power generation, increasing the share of renewable electricity in the grid.")
             elif wind_speed_kmh >= 15:
@@ -520,6 +519,7 @@ if st.button("Analyze", key="analyze_button"):
             else:
                 st.success(f"🍃 Calm wind from {compass} – {wind_speed_kmh:.0f} km/h.")
                 st.info("🍃 Light wind: wind power generation will be low, so the grid will rely more on other energy sources.")
+
         
         # Tab 6: Score and recommendation
         with tabs[5]:
